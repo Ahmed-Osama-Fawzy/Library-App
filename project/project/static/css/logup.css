@@ -1,0 +1,102 @@
+/*
+sign_up + login = logup :D
+
+the same css
+*/
+
+form{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+body, h1, p, div, label, input, a {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-image: url("https://img.freepik.com/free-photo/abundant-collection-antique-books-wooden-shelves-generated-by-ai_188544-29660.jpg?t=st=1713283771~exp=1713287371~hmac=6efc3522793b1a6a35c64d28adc6e70f39c3d1891caa21da07040d9e577ffc8c&w=740");
+    background-size: cover;
+    /* background-color: grey; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    opacity: 0.8;
+    
+    
+}
+
+.container {
+    width: 300px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgb(29, 16, 5);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+div {
+    margin-bottom: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="checkbox"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #d4bb9b;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+input[type="checkbox"] {
+    width: auto;
+    margin-left: 5px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: rgb(156, 108, 46) ;
+    color: #d4bb9b;
+    cursor: pointer;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color:  rgb(156, 108, 46) ;
+    margin-top: 15px;
+}
+
+a:hover {
+    text-decoration: underline;
+    color:  rgb(156, 108, 46) ;;
+}
