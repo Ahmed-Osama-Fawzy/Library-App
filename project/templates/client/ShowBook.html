@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{Title}}</title>
+    <title>{{ Title }}</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/Main.css' %}">
 </head>
 <body>
-    {% include 'admin/Navbar.html'%}
+    {% include 'client/Navbar.html' %}
     <section>
         <h1> Book Data </h1>
         <div>
@@ -30,6 +30,9 @@
             <h3>
                 Description: <Span> Description </Span>
             </h3>
+            <button>
+                <a href="">Borrow</a>
+            </button>
         </div>
     </section>
     <script src="{% static 'js/Main.js' %}"></script>

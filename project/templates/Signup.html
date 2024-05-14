@@ -3,12 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
-    <link rel="stylesheet" href="logup.css">
-    <script src="sign_up.js" defer></script>
+    <title>{{Title}}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/Main.css' %}">
 </head>
 <body>
     {% include 'Navbar.html'%}
-    
+    <section>
+        <h1> Create New Account </h1>
+        <form>
+            <div>
+                <label for="Username">Username</label>
+                <input id="Username" type="text" required>
+            </div>
+            <div>
+                <label for="Email">Email</label>
+                <input id="Email" type="email" required>
+            </div>
+            <div>
+                <label for="Phone">Phone</label>
+                <input id="Phone" type="text" required>
+            </div>
+            <div>
+                <label for="Password">Password</label>
+                <input id="Password" type="password" required>
+            </div>
+            <div>
+                <label for="Password">RePassword</label>
+                <input id="Password" type="password" required>
+            </div>
+            <div>
+                <input type="submit" value="Login">
+                <a href="{% url 'LogIn' %}">I'm Already Have Account</a>
+            </div>
+        </form>
+    </section>
+    <script src="{% static 'js/Main.js' %}"></script>
 </body>
 </html>

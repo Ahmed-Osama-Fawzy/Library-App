@@ -3,10 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{{Title}}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/Main.css' %}">
 </head>
 <body>
-    {% include 'admin/Navbar.html'%}
-    
+    {% include 'admin/Navbar.html'%}    
+    <section>
+        <h1>Remove Book</h1>
+        <form>
+            <div>
+                <label for="UnqieId">Id Title:</label>
+                <input type="text" id="UnqieId" placeholder="Enter the book Id">
+            </div>
+            <div>
+                <input type="submit" value="Remove">
+                <input type="reset" value="Reset">
+            </div>
+        </form>
+    </section>
+    <script src="{% static 'js/Main.js' %}"></script>
 </body>
 </html>

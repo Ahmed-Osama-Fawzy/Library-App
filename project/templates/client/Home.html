@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{Title}}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/Main.css' %}">
 </head>
 <body>
     {% include 'client/Navbar.html'%}
-
+    <section>
+        <h1>Welcome To User Page</h1>
+    </section>
+    <script src="{% static 'js/Main.js' %}"></script>
 </body>
 </html>

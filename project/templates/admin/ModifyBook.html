@@ -3,10 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{{Title}}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/Main.css' %}">
 </head>
 <body>
     {% include 'admin/Navbar.html'%}
-    
+    <section>
+        <h1>Modify Book</h1>
+        <form>
+            <div>
+                <label for="UnqieId">Id Title:</label>
+                <input type="text" id="UnqieId" placeholder="Enter the book Id">
+            </div>
+            <div>
+                <input type="submit" value="Search">
+                <input type="reset" value="Reset">
+            </div>
+        </form>
+        <hr>
+        <form>
+            <div>
+                <label for="title">Book Title:</label>
+                <input type="text" id="title" placeholder="Enter the book name">
+            </div>
+        
+            <div>
+                <label for="author">Author Name:</label>
+                <input type="text" id="author" placeholder="Enter author name">
+            </div>
+        
+            <div>
+                <label for="category">Book Category:</label>
+                <select id="category" name="category">
+                    <option value="fiction">Fiction</option>
+                    <option value="classic">Classic</option>
+                    <option value="mysteryandcrime">Mystery and Crime</option>
+                    <option value="fantasy">Fantasy</option>
+                    <option value="romance">Romance</option>
+                    <option value="history">History</option>
+                </select>
+            </div>
+        
+            <div>
+                <label for="description">Description:</label><br>
+                <textarea id="description" placeholder="Enter book description"></textarea>
+            </div>
+        
+            <div>
+                <label for="available">Available:</label>
+                <input type="checkbox" id="available" checked>
+            </div>
+        
+            <div>
+                <label for="image-url">Uplaod Cover:</label>
+                <input type="file" id="image-url">
+            </div>
+        
+            <div>
+                <input type="submit" value="Save">
+                <input type="reset" value="Reset">
+            </div>
+
+        </form>
+    </section>
+    <script src="{% static 'js/Main.js' %}"></script>
 </body>
 </html>

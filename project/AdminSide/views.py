@@ -27,4 +27,4 @@ def ShowBook(request):
     return render(request , 'admin/ShowBook.html')
 
 def Logout(request):
-    return render(request , 'Home.html')
+    return render(request , 'MainHome.html')

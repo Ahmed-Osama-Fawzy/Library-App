@@ -4,9 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{Title}}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/Main.css' %}">
 </head>
 <body>
     {% include 'client/Navbar.html'%}
-    
+    <section>
+        <h1> Borrow Book </h1>
+        <form>
+            <div>
+                <label for="Search"> Enter Book Name </label>
+                <input type="search" id="Search">
+            </div>
+        </form>
+        <hr>
+        <article>
+            <div>
+                <div>
+                    <img >
+                </div>
+                <div>
+                    <h3>
+                        Name: <Span> Book Name </Span>
+                    </h3>
+                    <h3>
+                        Author: <Span> Author Name </Span>
+                    </h3>
+                    <h3>
+                        Category: <Span> Category Name </Span>
+                    </h3>
+                    <h3>
+                        <Span> </Span> Available
+                    </h3>
+                    <button>
+                        <a href="{% url 'CShowBook' %}">Show</a>
+                    </button>
+                    <button>
+                        <a>Borrow</a>
+                    </button>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <img >
+                </div>
+                <div>
+                    <h3>
+                        Name: <Span> Book Name </Span>
+                    </h3>
+                    <h3>
+                        Author: <Span> Author Name </Span>
+                    </h3>
+                    <h3>
+                        Category: <Span> Category Name </Span>
+                    </h3>
+                    <h3>
+                        <Span> </Span> Available
+                    </h3>
+                    <button>
+                        <a href="{% url 'CShowBook' %}">Show</a>
+                    </button>
+                    <button>
+                        <a href="">Borrow</a>
+                    </button>
+                </div>
+            </div>
+        </article>
+    </section>
+    <script src="{% static 'js/Main.js' %}"></script>
 </body>
 </html>

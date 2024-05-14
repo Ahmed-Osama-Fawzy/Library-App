@@ -4,9 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{Title}}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/Main.css' %}">
 </head>
 <body>
     {% include 'client/Navbar.html'%}
-    
+    <section>
+        <h1> History </h1>
+        <div>
+            <h3>
+                Name: <Span> Book Name </Span>
+            </h3>
+            <h3>
+                Author: <Span> Author Name </Span>
+            </h3>
+            <h3>
+                Category: <Span> Category Name </Span>
+            </h3>
+            <h3>
+                <Span> </Span> Available
+            </h3>
+            <h3>
+                Borrow Date: <Span> 20/3/2076 </Span>
+            </h3>
+            <h3>
+                Return Date: <Span> 25/3/2076 </Span>
+            </h3>
+        </div>
+        
+        <div>
+            <h3>
+                Name: <Span> Book Name </Span>
+            </h3>
+            <h3>
+                Author: <Span> Author Name </Span>
+            </h3>
+            <h3>
+                Category: <Span> Category Name </Span>
+            </h3>
+            <h3>
+                <Span> </Span> Available
+            </h3>
+            <h3>
+                Borrow Date: <Span> 20/3/2076 </Span>
+            </h3>
+            <h3>
+                Return Date: <Span> 25/3/2076 </Span>
+            </h3>
+        </div>
+
+        <div>
+            <h3>
+                Name: <Span> Book Name </Span>
+            </h3>
+            <h3>
+                Author: <Span> Author Name </Span>
+            </h3>
+            <h3>
+                Category: <Span> Category Name </Span>
+            </h3>
+            <h3>
+                <Span> </Span> Available
+            </h3>
+            <h3>
+                Borrow Date: <Span> 20/3/2076 </Span>
+            </h3>
+            <h3>
+                Return Date: <Span> 25/3/2076 </Span>
+            </h3>
+        </div>
+    </section>
+    <script src="{% static 'js/Main.js' %}"></script>
 </body>
 </html>

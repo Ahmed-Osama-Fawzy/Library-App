@@ -1,0 +1,10 @@
+for create project
+- pip install django
+- django-admin startproject 'projectname'
+- 
+for run app
+- py manage.py runserver
+
+for create new app in project
+- py manage.py startapp 'app name'
+- 

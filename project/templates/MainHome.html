@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>{{Title}}</Title></title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/MainHomePage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Main.css' %}">
 </head>
 <body>
     {% include 'Navbar.html'%}
+    <section>
+        <h1> Welcome To 3M 2A 1S Library :D </h1>
+    </section>
+    <script src="{% static 'js/Main.js' %}"></script>
 </body>
 </html>

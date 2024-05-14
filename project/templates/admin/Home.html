@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{{Title}}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/Main.css' %}">
 </head>
 <body>
     {% include 'admin/Navbar.html'%}
-    
+    <section>
+        <h1>Welcome To Admin Page :D</h1>
+        <h3>Ahln Ya Admin Ya 7biby</h3>
+    </section>
+    <script src="{% static 'js/Main.js' %}"></script>
 </body>
 </html>

@@ -4,9 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{Title}}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/Main.css' %}">
 </head>
 <body>
     {% include 'client/Navbar.html'%}
-    
+    <section>
+        <h1> Client Data </h1>
+        <form>
+            <div>
+                <label for="Name">Name:</label>
+                <input type="text" id="Name">
+            </div>
+            <div>
+                <label for="Email">Email:</label>
+                <input type="email" id="Email">
+            </div>
+            <div>
+                <label for="Phone">Phone:</label>
+                <input type="text" id="Phone">
+            </div>
+            <div>
+                <label for="OldPassword">Old Password</label>
+                <input type="password" id="OldPassword">
+            </div>
+            <div>
+                <label for="NewPassword">New Password</label>
+                <input type="password" id="NewPassword">
+            </div>
+            <div>
+                <label for="ReNewPassword">ReNew Password</label>
+                <input type="password" id="ReNewPassword">
+            </div>
+            <div>
+                <input type="submit" value="Upadte">
+                <input type="reset" value="Reset">
+            </div>
+        </form>
+    </section>
+    <script src="{% static 'js/Main.js' %}"></script>
 </body>
 </html>

@@ -24,6 +24,18 @@ def Portifloio(request):
     }
     return render(request, 'client/Portifolio.html',context)
 
+def Library(request):
+    context = {
+        'Title':'Library',
+    }
+    return render(request, 'client/Library.html',context)
+
+def CShowBook(request):
+    context = {
+        'Title':'ShowBook',
+    }
+    return render(request, 'client/ShowBook.html',context)
+
 def Logout(request):
     context = {
         'Title':'Home',
