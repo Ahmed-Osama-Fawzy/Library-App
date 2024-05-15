@@ -11,10 +11,11 @@
     {% include 'admin/Navbar.html'%}
     <section>
         <h1>Modify Book</h1>
-        <form>
+        <form method="POST">
+            {% csrf_token %}
             <div>
                 <label for="UnqieId">Id Title:</label>
-                <input type="text" id="UnqieId" placeholder="Enter the book Id">
+                <input type="text" name="Id" id="UnqieId" placeholder="Enter the book Id">
             </div>
             <div>
                 <input type="submit" value="Search">
@@ -22,27 +23,37 @@
             </div>
         </form>
         <hr>
-        <form>
+        
+        <form method="post">
+            {% csrf_token %}
             <div>
                 <label for="title">Book Title:</label>
-                <input type="text" id="title" placeholder="Enter the book name">
+                {% if BTitle %}
+                    <input type="text" value='{{BTitle}}' id="title" placeholder="the book name">
+                {% else %}
+                    <input type="text"  id="title" placeholder="Enter the book name">
+                {% endif %}
             </div>
         
             <div>
                 <label for="author">Author Name:</label>
-                <input type="text" id="author" placeholder="Enter author name">
+                {% if Author %}
+                    <input type="text" id="author" value="{{Author}}" placeholder="Enter author name">
+                {% else %}
+                    <input type="text" id="author" placeholder="Enter author name">
+                {% endif %}
             </div>
         
             <div>
                 <label for="category">Book Category:</label>
-                <select id="category" name="category">
-                    <option value="fiction">Fiction</option>
-                    <option value="classic">Classic</option>
-                    <option value="mysteryandcrime">Mystery and Crime</option>
-                    <option value="fantasy">Fantasy</option>
-                    <option value="romance">Romance</option>
-                    <option value="history">History</option>
-                </select>
+                    <select id="category" name="category">
+                        <option value="fiction">Fiction</option>
+                        <option value="classic">Classic</option>
+                        <option value="mysteryandcrime">Mystery and Crime</option>
+                        <option value="fantasy">Fantasy</option>
+                        <option value="romance">Romance</option>
+                        <option value="history">History</option>
+                    </select>
             </div>
         
             <div>

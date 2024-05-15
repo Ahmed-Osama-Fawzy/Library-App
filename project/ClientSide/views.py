@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from Controlling.models import Book
+
 
 def Home(request):
     context = {
@@ -27,6 +29,7 @@ def Portifloio(request):
 def Library(request):
     context = {
         'Title':'Library',
+        'Books':Book.objects.all(),
     }
     return render(request, 'client/Library.html',context)
 

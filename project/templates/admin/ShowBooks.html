@@ -11,75 +11,36 @@
     {% include 'admin/Navbar.html'%}
     <section class="Books">
         <h1> List of Books </h1>
-        <div>
+        {% for Book in Books %}
             <div>
-                {% load static %}
-                <img src="{% static 'book.jpeg' %}">
+                <div>
+                    <img src="{{Book.Cover.url}}">
+                </div>
+                <div>
+                    <h3>
+                        {{Book.id}}
+                    </h3>
+                    <h3>
+                        Name: <Span> {{Book.Title}} </Span>
+                    </h3>
+                    <h3>
+                        Author: <Span> {{Book.Author}} </Span>
+                    </h3>
+                    <h3>
+                        Category: <Span> {{Book.Category}} </Span>
+                    </h3>
+                    <h3>
+                        <Span> {% if Book.Avilable %} {% else %} Not {% endif %} </Span> Available
+                    </h3>
+                    <h3 style="display: none;">
+                        {{Book.Description}}
+                    </h3>
+                    <button>
+                        <a href="{% url 'ShowBook' %}">Show</a>
+                    </button>
+                </div>
             </div>
-            <div>
-                <h3>
-                    Name: <Span> Book Name </Span>
-                </h3>
-                <h3>
-                    Author: <Span> Author Name </Span>
-                </h3>
-                <h3>
-                    Category: <Span> Category Name </Span>
-                </h3>
-                <h3>
-                    <Span> </Span> Available
-                </h3>
-                <button>
-                    <a href="{% url 'ShowBook' %}">Show</a>
-                </button>
-            </div>
-        </div>
-        <div>
-            <div>
-                {% load static %}
-                <img src="{% static 'book.jpeg' %}">
-            </div>
-            <div>
-                <h3>
-                    Name: <Span> Book Name </Span>
-                </h3>
-                <h3>
-                    Author: <Span> Author Name </Span>
-                </h3>
-                <h3>
-                    Category: <Span> Category Name </Span>
-                </h3>
-                <h3>
-                    <Span> </Span> Available
-                </h3>
-                <button>
-                    <a href="{% url 'ShowBook' %}">Show</a>
-                </button>
-            </div>
-        </div>
-        <div>
-            <div>
-                {% load static %}
-                <img src="{% static 'book.jpeg' %}">
-            </div>
-            <div>
-                <h3>
-                    Name: <Span> Book Name </Span>
-                </h3>
-                <h3>
-                    Author: <Span> Author Name </Span>
-                </h3>
-                <h3>
-                    Category: <Span> Category Name </Span>
-                </h3>
-                <h3>
-                    <Span> </Span> Available
-                </h3>
-                <button>
-                    <a href="{% url 'ShowBook' %}">Show</a>
-                </button>
-            </div>
-        </div>
+        {% endfor %}
     </section>
     <script src="{% static 'js/Main.js' %}"></script>
 </body>

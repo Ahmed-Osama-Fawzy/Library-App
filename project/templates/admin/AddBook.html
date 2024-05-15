@@ -10,20 +10,21 @@
     {% include 'admin/Navbar.html'%}
     <section>
         <h1>Add Book</h1>
-        <form>
+        <form method="POST">
+            {% csrf_token %}
             <div>
                 <label for="title">Book Title:</label>
-                <input type="text" id="title" placeholder="Enter the book name">
+                <input type="text" id="title" name="Title" placeholder="Enter the book name">
             </div>
         
             <div>
                 <label for="author">Author Name:</label>
-                <input type="text" id="author" placeholder="Enter author name">
+                <input type="text" id="author" name="Author" placeholder="Enter author name">
             </div>
         
             <div>
                 <label for="category">Book Category:</label>
-                <select id="category" name="category">
+                <select id="category" name="Category">
                     <option value="fiction">Fiction</option>
                     <option value="classic">Classic</option>
                     <option value="mysteryandcrime">Mystery and Crime</option>
@@ -35,17 +36,17 @@
         
             <div>
                 <label for="description">Description:</label>
-                <textarea id="description" placeholder="Enter book description"></textarea>
+                <textarea id="description" name="Description" placeholder="Enter book description"></textarea>
             </div>
         
             <div>
                 <label for="available">Available:</label>
-                <input type="checkbox" id="available" checked>
+                <input type="checkbox" id="available" name="Available" checked>
             </div>
         
             <div>
                 <label for="image-url">Uplaod Cover:</label>
-                <input type="file" id="image-url">
+                <input type="file" id="image-url" name="Cover">
             </div>
         
             <div>
