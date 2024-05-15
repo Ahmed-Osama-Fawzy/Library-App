@@ -9,83 +9,110 @@
 </head>
 <body>
     {% include 'client/Navbar.html' %}
-    <section>
+    <section class="Library">
         <h1> List of Books </h1>
-        <div>
+        <article>
             <div>
-                <img >
+                <div>
+                    <img src="{% static 'book.jpeg' %}">
+                </div>
+                <div>
+                    <h3>
+                        Name: <Span> Book Name </Span>
+                    </h3>
+                    <h3>
+                        Author: <Span> Author Name </Span>
+                    </h3>
+                    <h3>
+                        Category: <Span> Category Name </Span>
+                    </h3>
+                    <h3>
+                        <Span> </Span> Available
+                    </h3>
+                    <button>
+                        <a href="{% url 'CShowBook' %}">Show</a>
+                    </button>
+                    <button>
+                        <a href="">Borrow</a>
+                    </button>
+                </div>
             </div>
             <div>
-                <h3>
-                    Name: <Span> Book Name </Span>
-                </h3>
-                <h3>
-                    Author: <Span> Author Name </Span>
-                </h3>
-                <h3>
-                    Category: <Span> Category Name </Span>
-                </h3>
-                <h3>
-                    <Span> </Span> Available
-                </h3>
-                <button>
-                    <a href="{% url 'CShowBook' %}">Show</a>
-                </button>
-                <button>
-                    <a href="">Borrow</a>
-                </button>
-            </div>
-        </div>
-        <div>
-            <div>
-                <img >
-            </div>
-            <div>
-                <h3>
-                    Name: <Span> Book Name </Span>
-                </h3>
-                <h3>
-                    Author: <Span> Author Name </Span>
-                </h3>
-                <h3>
-                    Category: <Span> Category Name </Span>
-                </h3>
-                <h3>
-                    <Span> </Span> Available
-                </h3>
-                <button>
-                    <a href="{% url 'CShowBook' %}">Show</a>
-                </button>
-                <button>
-                    <a href="">Borrow</a>
-                </button>
-            </div>
-        </div>
-        <div>
-            <div>
-                <img >
+                <div>
+                    <img src="{% static 'book.jpeg' %}">
+                </div>
+                <div>
+                    <h3>
+                        Name: <Span> Book Name </Span>
+                    </h3>
+                    <h3>
+                        Author: <Span> Author Name </Span>
+                    </h3>
+                    <h3>
+                        Category: <Span> Category Name </Span>
+                    </h3>
+                    <h3>
+                        <Span> </Span> Available
+                    </h3>
+                    <button>
+                        <a href="{% url 'CShowBook' %}">Show</a>
+                    </button>
+                    <button>
+                        <a href="">Borrow</a>
+                    </button>
+                </div>
             </div>
             <div>
-                <h3>
-                    Name: <Span> Book Name </Span>
-                </h3>
-                <h3>
-                    Author: <Span> Author Name </Span>
-                </h3>
-                <h3>
-                    Category: <Span> Category Name </Span>
-                </h3>
-                <h3>
-                    <Span> </Span> Available
-                </h3>
-                <button>
-                    <a href="{% url 'CShowBook' %}">Show</a>
-                </button>
-                <button>
-                    <a href="">Borrow</a>
-                </button>
+                <div>
+                    <img src="{% static 'book.jpeg' %}">
+                </div>
+                <div>
+                    <h3>
+                        Name: <Span> Book Name </Span>
+                    </h3>
+                    <h3>
+                        Author: <Span> Author Name </Span>
+                    </h3>
+                    <h3>
+                        Category: <Span> Category Name </Span>
+                    </h3>
+                    <h3>
+                        <Span> </Span> Available
+                    </h3>
+                    <button>
+                        <a href="{% url 'CShowBook' %}">Show</a>
+                    </button>
+                    <button>
+                        <a href="">Borrow</a>
+                    </button>
+                </div>
             </div>
-        </div>
+            <div>
+                <div>
+                    <img src="{% static 'book.jpeg' %}">
+                </div>
+                <div>
+                    <h3>
+                        Name: <Span> Book Name </Span>
+                    </h3>
+                    <h3>
+                        Author: <Span> Author Name </Span>
+                    </h3>
+                    <h3>
+                        Category: <Span> Category Name </Span>
+                    </h3>
+                    <h3>
+                        <Span> </Span> Available
+                    </h3>
+                    <button>
+                        <a href="{% url 'CShowBook' %}">Show</a>
+                    </button>
+                    <button>
+                        <a href="">Borrow</a>
+                    </button>
+                </div>
+            </div>
+        </article>
     </section>
     <script src="{% static 'js/Main.js' %}"></script>
 </body>

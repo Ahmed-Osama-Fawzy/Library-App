@@ -2,22 +2,23 @@
     <ul>
         <li>
             <a>
-                <img>
+                {% load static %}
+                <img src="{% static 'logo.jpeg' %}">
             </a>
         </li>
         <li>
             <a href="{% url 'MainHome' %}">
-                <span> XLIB </span>
+                XLIB
             </a>
         </li>
         <li>
             <a href="{% url 'LogIn' %}">
-                <span> Login </span>
+                Login
             </a>
         </li>
         <li>
             <a href="{% url 'SignUp' %}">
-                <span> Signup </span>
+                Signup
             </a>
         </li>
     </ul>

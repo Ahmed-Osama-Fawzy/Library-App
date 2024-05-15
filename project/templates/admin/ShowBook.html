@@ -9,12 +9,11 @@
 </head>
 <body>
     {% include 'admin/Navbar.html'%}
-    <section>
+    <section class="Book">
         <h1> Book Data </h1>
         <div>
-            <img>
-        </div>
-        <div>
+            {% load static %}
+            <img src="{% static 'book.jpeg' %}">
             <h3>
                 Name: <Span> Book Name </Span>
             </h3>

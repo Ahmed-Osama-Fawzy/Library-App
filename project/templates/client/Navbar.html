@@ -2,12 +2,13 @@
     <ul>
         <li>
             <a>
-                <img>
+                {% load static %}
+                <img src="{% static 'logo.jpeg' %}">
             </a>
         </li>
         <li>
             <a href="{% url 'Home' %}">
-                <span> Home </span>
+                Home
             </a>
         </li>
         <li>
@@ -17,22 +18,22 @@
         </li>
         <li>
             <a href="{% url 'History' %}">
-                <span> Borrow Hitsory </span>
+                Borrow Hitsory
             </a>
         </li>
         <li>
-            <a href="">
-                <span> Library </span>
+            <a href="{% url 'Library' %}">
+                Library
             </a>
         </li>
         <li>
             <a href="{% url 'Portifloio' %}">
-                <span> Portifloio </span>
+                Portifloio
             </a>
         </li>
         <li>
             <a href="{% url 'Logout' %}">
-                <span> Logout </span>
+                Logout
             </a>
         </li>
     </ul>
