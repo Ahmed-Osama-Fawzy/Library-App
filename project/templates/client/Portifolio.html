@@ -77,17 +77,17 @@
             return Password.test(Pass);
         }
     
-        /*document.forms[0].addEventListener("submit",(e)=>{
-            let Phone = validateMobile(document.getElementById("Phone"))
-            let Email = validateEmail(document.getElementById("Email"))
-            let Password = validatePassword(document.getElementById("NewPassword"))
-            let RePassword = document.getElementById("NewPassword") == document.getElementById("ReNewPassword")
+        document.forms[0].addEventListener("submit",(e)=>{
+            let Phone = validateMobile(document.getElementById("Phone").value)
+            let Email = validateEmail(document.getElementById("Email").value)
+            let Password = validatePassword(document.getElementById("NewPassword").value)
+            let RePassword = document.getElementById("NewPassword").value == document.getElementById("ReNewPassword").value
             if(Phone && Email && Password && RePassword){
                 console.log("Welcome")
             }else{
                 e.preventDefault()
             }
-        })*/
+        })
     </script>
 </body>
 </html>

@@ -53,8 +53,8 @@
             return Password.test(Pass);
         }
         document.forms[0].addEventListener("submit",(e)=>{
-            let Password = validatePassword(document.getElementById("Password"))
-            let RePassword = document.getElementById("Password") == document.getElementById("RePassword")
+            let Password = validatePassword(document.getElementById("Password").value)
+            let RePassword = document.getElementById("Password").value == document.getElementById("RePassword").value
             if(Password && RePassword){
                 console.log("Welcome")
             }else{

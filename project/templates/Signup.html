@@ -69,10 +69,10 @@
         }
     
         document.forms[0].addEventListener("submit",(e)=>{
-            let Phone = validateMobile(document.getElementById("Phone"))
-            let Email = validateEmail(document.getElementById("Email"))
-            let Password = validatePassword(document.getElementById("Password"))
-            let RePassword = document.getElementById("Password") == document.getElementById("RePassword")
+            let Phone = validateMobile(document.getElementById("Phone").value)
+            let Email = validateEmail(document.getElementById("Email").value)
+            let Password = validatePassword(document.getElementById("Password").value)
+            let RePassword = document.getElementById("Password").value == document.getElementById("RePassword").value
             if(Phone && Email && Password && RePassword){
                 console.log("Welcome")
             }else{
