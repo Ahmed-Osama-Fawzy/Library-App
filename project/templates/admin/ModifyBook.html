@@ -27,52 +27,96 @@
         <form method="post">
             {% csrf_token %}
             <div>
+                <input type="text" name="XId" value="{{Id}}" style="display: none;">
                 <label for="title">Book Title:</label>
                 {% if BTitle %}
-                    <input type="text" value='{{BTitle}}' id="title" placeholder="the book name">
+                    <input type="text" name="Title" value='{{ BTitle }}' id="title" placeholder="the book name">
                 {% else %}
-                    <input type="text"  id="title" placeholder="Enter the book name">
+                    <input type="text" name="Title"  id="title" placeholder="Enter the book name">
                 {% endif %}
             </div>
         
             <div>
                 <label for="author">Author Name:</label>
                 {% if Author %}
-                    <input type="text" id="author" value="{{Author}}" placeholder="Enter author name">
+                    <input type="text" name="Author" id="author" value="{{ Author }}" placeholder="Enter author name">
                 {% else %}
-                    <input type="text" id="author" placeholder="Enter author name">
+                    <input type="text" name="Author" id="author" placeholder="Enter author name">
+                {% endif %}
+            </div>
+
+            <div>
+                <label for="description">Description:</label>
+                {% if Description %}
+                    <textarea id="description" name="Description" placeholder="Enter book description">{{ Description }}</textarea>
+                {% else %}
+                    <textarea id="description" name="Description"  placeholder="book description"></textarea>
                 {% endif %}
             </div>
         
             <div>
                 <label for="category">Book Category:</label>
-                    <select id="category" name="category">
-                        <option value="fiction">Fiction</option>
+                <select id="category" name="Category">
+                    
+                    {% if Category == "fiction" %}
+                        <option value="fiction" selected> Fiction </option>
+                    {% else %}
+                        <option value="fiction"> Fiction </option>
+                    {% endif %}
+                    
+                    {% if Category == "classic" %}
+                        <option value="classic" selected>Classic</option>
+                    {% else %}        
                         <option value="classic">Classic</option>
+                    {% endif %}
+                    
+                    {% if Category == "mysteryandcrime" %}
+                        <option value="mysteryandcrime" selected>Mystery and Crime</option>
+                    {% else %}
                         <option value="mysteryandcrime">Mystery and Crime</option>
+                    {% endif %}
+                    
+                    {% if Category == "fantasy" %}
+                        <option value="fantasy" selected>Fantasy</option>
+                    {% else %}
                         <option value="fantasy">Fantasy</option>
+                    {% endif %}
+                    
+                    {% if Category == "romance" %}
+                        <option value="romance" selected>Romance</option>
+                    {% else %}    
                         <option value="romance">Romance</option>
+                    {% endif %}
+
+                    {% if Category == "history" %}
+                        <option value="history" selected>History</option>
+                    {% else %}    
                         <option value="history">History</option>
-                    </select>
-            </div>
-        
-            <div>
-                <label for="description">Description:</label><br>
-                <textarea id="description" placeholder="Enter book description"></textarea>
+                    {% endif %}
+                </select>
             </div>
         
             <div>
                 <label for="available">Available:</label>
-                <input type="checkbox" id="available" checked>
+                {% if Available %}
+                    <input type="checkbox" name="Available" id="available" checked>
+                {% else %}
+                    <input type="checkbox" name="Available" id="available">
+                {% endif %}
             </div>
         
             <div>
                 <label for="image-url">Uplaod Cover:</label>
-                <input type="file" id="image-url">
+                {% if Cover %}
+                    <input type="text" value="{{ Cover }}" name="Cover" style="display: none;">
+                    <input type="file" id="image-url" >
+                {% else %}
+                    <input type="file" name="Cover" id="image-url">
+                {% endif %}
             </div>
         
             <div>
-                <input type="submit" value="Save">
+                <input type="submit" value="Update">
                 <input type="reset" value="Reset">
             </div>
 

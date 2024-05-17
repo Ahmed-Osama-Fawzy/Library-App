@@ -9,68 +9,107 @@
 </head>
 <body>
     {% include 'client/Navbar.html'%}
-    <section>
+    <section class="Library">
         <h1> Borrow Book </h1>
-        <form>
+        <form method="post">
+            {% csrf_token %}
             <div>
-                <label for="Search"> Enter Book Name </label>
+                <label for="Search" > Enter Book Name </label>
                 <input type="search" id="Search">
+                <input style="display: none;" name="Id" type="number" value="">
             </div>
         </form>
         <hr>
-        <article class="Books">
+        <article>
+            {% for Book in Books %}
             <div>
                 <div>
-                <img src="{% static 'book.jpeg' %}">
+                    <img src="{{Book.Cover.url}}">
                 </div>
                 <div>
                     <h3>
-                        Name: <Span> Book Name </Span>
+                        Name: <span class="BookTitle"> {{Book.Title}} </span>
                     </h3>
                     <h3>
-                        Author: <Span> Author Name </Span>
+                        Author: <span> {{Book.Author}} </span>
                     </h3>
                     <h3>
-                        Category: <Span> Category Name </Span>
+                        Category: <span> {{ Book.Category }}</span>
                     </h3>
                     <h3>
-                        <Span> </Span> Available
+                        <span> {% if Book.Avilable %} {% else %} Not {% endif %} </span> Available
+                    </h3>
+                    <h3 style="display: none;">
+                        <span>
+                            {{Book.Description}}
+                        </span>
                     </h3>
                     <button>
-                        <a href="{% url 'CShowBook' %}">Show</a>
+                        <a class="ShowBook" target="_blank" href="{% url 'CShowBook' %}">Show</a>
                     </button>
                     <button>
-                        <a>Borrow</a>
+                        <a onclick="BorrowBook('{{Book.Id}}')"> Borrow </a>
                     </button>
                 </div>
             </div>
-            <div>
-                <div>
-                    <img src="{% static 'book.jpeg' %}">
-                </div>
-                <div>
-                    <h3>
-                        Name: <Span> Book Name </Span>
-                    </h3>
-                    <h3>
-                        Author: <Span> Author Name </Span>
-                    </h3>
-                    <h3>
-                        Category: <Span> Category Name </Span>
-                    </h3>
-                    <h3>
-                        <Span> </Span> Available
-                    </h3>
-                    <button>
-                        <a href="{% url 'CShowBook' %}">Show</a>
-                    </button>
-                    <button>
-                        <a href="">Borrow</a>
-                    </button>
-                </div>
-            </div>
+        {% endfor %}
         </article>
     </section>
-    <script src="{% static 'js/Main.js' %}"></script>
+    <!-- <script src="{% static 'js/Main.js' %}"></script> -->
+    <script>
+        document.getElementById("Search").addEventListener("keyup",(e)=>{
+            let ConTitles = Array.from(document.getElementsByClassName("BookTitle"))
+            let Value = document.getElementById("Search").value
+            let Titles = []
+            if(Value){
+                ConTitles.forEach((Title)=>{
+                    Title.parentElement.parentElement.parentElement.style.display = 'none'
+                })
+                for(i = 0 ; i < ConTitles.length;i++){
+                    let Obj = {
+                        x:[i,ConTitles[i].innerHTML,ConTitles[i]]
+                    }
+                    Titles[i] = Obj
+                }
+                const Filtered = Titles.filter((el) => el.x[1].toLowerCase().includes(Value.toLowerCase()))
+                Filtered.forEach(item => {
+                    item.x[2].parentElement.parentElement.parentElement.style.display = 'block'
+                })
+            }else{
+                ConTitles.forEach((Title)=>{
+                    Title.parentElement.parentElement.parentElement.style.display = 'block'
+                })
+            }
+        })
+        let Buttons = Array.from(document.getElementsByClassName("ShowBook"))
+        Buttons.forEach((button)=>{
+            button.addEventListener("click",(e)=>{
+                let Container = button.parentElement.parentElement
+                let Headers = Container.children
+                console.log( Headers.item(0).children[0].innerHTML)
+                let Title = Headers.item(0).children[0].innerHTML
+                let Author = Headers.item(1).children[0].innerHTML
+                let Category = Headers.item(2).children[0].innerHTML
+                let Available = Headers.item(3).children[0].innerHTML
+                let Description = Headers.item(4).children[0].innerHTML
+                let Cover = Container.parentElement.children[0].children[0].getAttribute("src")
+                
+                localStorage.clear()
+                localStorage.setItem("Title",Title)
+                localStorage.setItem("Author",Author)
+                localStorage.setItem("Category",Category)
+                localStorage.setItem("Available",Available)
+                localStorage.setItem("Description",Description)
+                localStorage.setItem("Cover",Cover)
+            })
+        } )
+        function BorrowBook(Id){
+            console.log(document.forms[0].children.item(1).children.item(2))
+            console.log(document.forms[0].children.item(1).children.item(2).value)
+            let Input = document.forms[0].children.item(1).children.item(2)
+            Input.value = Id
+            document.forms[0].submit()
+        }
+    </script>
 </body>
 </html>

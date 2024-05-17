@@ -11,10 +11,11 @@
     {% include 'admin/Navbar.html'%}    
     <section>
         <h1>Remove Book</h1>
-        <form>
+        <form method="POST">
+            {% csrf_token %}
             <div>
                 <label for="UnqieId">Id Title:</label>
-                <input type="text" id="UnqieId" placeholder="Enter the book Id">
+                <input type="text" name="Id" id="UnqieId" placeholder="Enter the book Id">
             </div>
             <div>
                 <input type="submit" value="Remove">

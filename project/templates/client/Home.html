@@ -10,8 +10,18 @@
 <body>
     {% include 'client/Navbar.html'%}
     <section>
-        <h1>Welcome To User Page</h1>
+        <h1> Welcome <span id="Username">{{Username}}</span> </h1>
+        <span id="Email" style="display: none;">{{Email}}</span>
+        <span id="Name" style="display: none;">{{Name}}</span>
+        <span id="Phone" style="display: none;">{{Phone}}</span>
     </section>
-    <script src="{% static 'js/Main.js' %}"></script>
+    <!-- <script src="{% static 'js/Main.js' %}"></script> -->
+    <script>
+        localStorage.clear()
+        localStorage.setItem("Username",document.getElementById("Username").innerHTML)
+        localStorage.setItem("Email",document.getElementById("Email").innerHTML)
+        localStorage.setItem("Name",document.getElementById("Name").innerHTML)
+        localStorage.setItem("Phone",document.getElementById("Phone").innerHTML)
+    </script>
 </body>
 </html>

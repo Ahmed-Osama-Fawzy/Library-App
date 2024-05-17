@@ -1,7 +1,9 @@
 :root{
-    --Color1:red;
-    --Color2:green;
-    --Color3:blue;
+    --Color1:rgb(212, 163, 115);
+    --Color2:rgb(254, 250, 224);
+    --Color3:rgb(204, 213, 174);
+    --Color4:rgb(40, 54, 24);
+    --Color5:rgb(96, 108, 56);
 }
 body{
     padding: 0;
@@ -13,6 +15,30 @@ hr{
     background-color: var(--Color3);
     margin: 10px auto;
     width: 80%;
+}
+button{
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: xx-large;
+    font-weight: 500;
+    margin: 20px;
+    background-color: var(--Color3);
+    color: var(--Color1);
+    transition: 1s;
+    text-align: center;
+    margin: 15px 10px;
+}
+
+button > a{
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+}
+
+button:hover{
+    background-color: var(--Color1);
+    color: var(--Color3);
 }
 nav{
     width: 100%;
@@ -27,6 +53,12 @@ nav > ul{
 nav > ul > li > a{
     text-decoration: none;
     font-size: xx-large;
+    color: var(--Color4);
+    transition: 1s;
+    font-weight: 600;
+}
+nav > ul > li > a:hover{
+    color: var(--Color5);
 }
 nav > ul > li > a > img {
     border-radius:100%;
@@ -56,7 +88,7 @@ section > form > div > label, textarea , select{
     display: block;
     padding: 10px;
     font-size: x-large;
-    color: var(--Color2);
+    color: var(--Color3);
     font-weight: 700;
 }
 
@@ -80,14 +112,14 @@ section > form > div > input[type='submit'],input[type='reset']{
     color: var(--Color1);
     transition: 1s;
     text-align: center;
-    margin: 5px auto;
+    margin: 15px;
 } 
 
 section > form > div > input[type='submit']:hover,input[type='reset']:hover{
     background-color: var(--Color1);
     color: var(--Color3);
 }
-section[class='Books']  > div{
+.Books  > div{
     width: 92%;
     padding: 2%;
     margin: 2%;
@@ -95,52 +127,27 @@ section[class='Books']  > div{
     align-items: center;
 }
 
-section[class='Books']  > div > div {
+.Books  > div > div {
     padding: 10px;
 }
 
-section[class='Books']  > div > div > img{
+.Books  > div > div > img{
     width: 100%;
     height: 100%;
 }
 
-section[class='Books']  > div > div > h3{
+.Books  > div > div > h3{
     font-size: xx-large;
     font-weight: 600;
     color: var(--Color1);
 }
 
-section[class='Books']  > div > div > h3 > span{
+.Books  > div > div > h3 > span{
     font-size: inherit;
     font-weight: inherit;
     color: var(--Color3);
 }
 
-section[class='Books']  > div > div > button{
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    font-size: xx-large;
-    font-weight: 500;
-    margin: 20px;
-    background-color: var(--Color3);
-    color: var(--Color1);
-    transition: 1s;
-    text-align: center;
-    margin: 5px auto;
-    margin-left: 45%;
-}
-
-section[class='Books']  > div > div > button > a{
-    text-decoration: none;
-    color: inherit;
-    background-color: inherit;
-}
-
-section[class='Books']  > div > div > button:hover{
-    background-color: var(--Color1);
-    color: var(--Color3);
-}
 section[class='History'] > div{
     width: 92%;
     display: grid;
@@ -188,6 +195,35 @@ section[class='Book'] > div > h3 > span {
     color: var(--Color3);
 }
 
+section[class='Library'] > article{
+    display: grid;
+    width: 92%;
+    padding: 2%;
+    margin: 2%;
+    gap: 20px;
+}
+section[class='Library'] > article > div{
+    background-color: var(--Color2);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+section[class='Library'] > article > div > div > img {
+    width: 100%;
+}
+
+section[class='Library'] > article > div > div > h3{
+    font-size: x-large;
+    font-weight: 600;
+    color: var(--Color1);
+}
+
+section[class='Library'] > article > div > div > h3 > span{
+    font-size: inherit;
+    font-weight: inherit;
+    color: var(--Color3);
+}
+
 @media (min-width:1800px) and (max-width: 5599px){
     nav ul{
         display: flex;
@@ -198,11 +234,14 @@ section[class='Book'] > div > h3 > span {
         display: grid;
         grid-template-columns: 20% 20% 20% 20% 20%;
     }
-    section[class='Books']  > div{
+    .Books  > div{
         grid-template-columns: 50% 50%;
     }
     section[class='History'] > div{
         grid-template-columns: repeat(7,1fr);
+    }
+    section[class='Library'] > article{
+        grid-template-columns: repeat(4 , 1fr);
     }
 }
 @media (min-width: 1290px) and (max-width: 1799px){
@@ -215,11 +254,14 @@ section[class='Book'] > div > h3 > span {
         display: grid;
         grid-template-columns: 25% 25% 25% 25%;
     }
-    section[class='Books']  > div{
+    .Books  > div{
         grid-template-columns: 50% 50%;
     }
     section[class='History'] > div{
         grid-template-columns: 25% 25% 25% 25%;
+    }
+    section[class='Library'] > article{
+        grid-template-columns: repeat(3 , 1fr);
     }
 }
 @media (min-width: 740px) and (max-width: 1289px){
@@ -250,11 +292,14 @@ section[class='Book'] > div > h3 > span {
         display: grid;
         grid-template-columns: 50% 50%;
     }
-    section[class='Books']  > div{
+    .Books  > div{
         grid-template-columns: 100%;
     }
     section[class='History'] > div{
         grid-template-columns: 33.33% 33.33% 33.333%;
+    }
+    section[class='Library'] > article{
+        grid-template-columns: 50% 50%;
     }
 }
 @media (max-width: 739px) and (min-width:570px){
@@ -265,11 +310,14 @@ section[class='Book'] > div > h3 > span {
         display: grid;
         grid-template-columns: 100%;
     }
-    section[class='Books']  > div{
+    .Books  > div{
         grid-template-columns: 100%;
     }
     section[class='History'] > div{
         grid-template-columns: 50% 50%;
+    }
+    section[class='Library'] > article{
+        grid-template-columns: 100%;
     }
 }
 @media (max-width:569px) {
@@ -280,10 +328,13 @@ section[class='Book'] > div > h3 > span {
         display: grid;
         grid-template-columns: 100%;
     }
-    section[class='Books']  > div{
+    .Books  > div{
         grid-template-columns: 100%;
     }
     section[class='History'] > div{
         grid-template-columns: 100% ;
+    }
+    section[class='Library'] > article{
+        grid-template-columns: 100%;
     }
 }

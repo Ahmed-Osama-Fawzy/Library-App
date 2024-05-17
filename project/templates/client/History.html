@@ -11,68 +11,25 @@
     {% include 'client/Navbar.html'%}
     <section class="History">
         <h1> History </h1>
-        <div>
-            <h3>
-                Name: <Span> Book Name </Span>
-            </h3>
-            <h3>
-                Author: <Span> Author Name </Span>
-            </h3>
-            <h3>
-                Category: <Span> Category Name </Span>
-            </h3>
-            <h3>
-                <Span> </Span> Available
-            </h3>
-            <h3>
-                Borrow Date: <Span> 20/3/2076 </Span>
-            </h3>
-            <h3>
-                Return Date: <Span> 25/3/2076 </Span>
-            </h3>
-        </div>
-        
-        <div>
-            <h3>
-                Name: <Span> Book Name </Span>
-            </h3>
-            <h3>
-                Author: <Span> Author Name </Span>
-            </h3>
-            <h3>
-                Category: <Span> Category Name </Span>
-            </h3>
-            <h3>
-                <Span> </Span> Available
-            </h3>
-            <h3>
-                Borrow Date: <Span> 20/3/2076 </Span>
-            </h3>
-            <h3>
-                Return Date: <Span> 25/3/2076 </Span>
-            </h3>
-        </div>
-
-        <div>
-            <h3>
-                Name: <Span> Book Name </Span>
-            </h3>
-            <h3>
-                Author: <Span> Author Name </Span>
-            </h3>
-            <h3>
-                Category: <Span> Category Name </Span>
-            </h3>
-            <h3>
-                <Span> </Span> Available
-            </h3>
-            <h3>
-                Borrow Date: <Span> 20/3/2076 </Span>
-            </h3>
-            <h3>
-                Return Date: <Span> 25/3/2076 </Span>
-            </h3>
-        </div>
+        {% for Order in data %}
+            <div>
+                <h3>
+                    Name: <span> {{Order.Title}} </span>
+                </h3>
+                <h3>
+                    Category: <span> {{Order.Category}} </span>
+                </h3>
+                <h3>
+                    <span> {% if Order.Available %} {% else %} Not {% endif %}</span> Available
+                </h3>
+                <h3>
+                    Borrow Date: <span> {{Order.BorrowDate}} </span>
+                </h3>
+                <h3>
+                    Return Date: <span> {{Order.ReturnDate}} </span>
+                </h3>
+            </div>
+        {% endfor %}
     </section>
     <script src="{% static 'js/Main.js' %}"></script>
 </body>

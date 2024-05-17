@@ -11,78 +11,31 @@
     {% include 'admin/Navbar.html'%}
     <section class="History">
         <h1> Borrowing History </h1>
-        <div>
-            <h3>
-                Borrower: <Span> Borrower Name </Span>
-            </h3>
-            <h3>
-                Name: <Span> Book Name </Span>
-            </h3>
-            <h3>
-                Author: <Span> Author Name </Span>
-            </h3>
-            <h3>
-                Category: <Span> Category Name </Span>
-            </h3>
-            <h3>
-                <Span> </Span> Available
-            </h3>
-            <h3>
-                Borrow Date: <Span> 20/3/2076 </Span>
-            </h3>
-            <h3>
-                Return Date: <Span> 25/3/2076 </Span>
-            </h3>
-        </div>
-
-        <div>
-            <h3>
-                Borrower: <Span> Borrower Name </Span>
-            </h3>
-            <h3>
-                Name: <Span> Book Name </Span>
-            </h3>
-            <h3>
-                Author: <Span> Author Name </Span>
-            </h3>
-            <h3>
-                Category: <Span> Category Name </Span>
-            </h3>
-            <h3>
-                <Span> </Span> Available
-            </h3>
-            <h3>
-                Borrow Date: <Span> 20/3/2076 </Span>
-            </h3>
-            <h3>
-                Return Date: <Span> 25/3/2076 </Span>
-            </h3>
-        </div>
-
-        <div>
-            <h3>
-                Borrower: <Span> Borrower Name </Span>
-            </h3>
-            <h3>
-                Name: <Span> Book Name </Span>
-            </h3>
-            <h3>
-                Author: <Span> Author Name </Span>
-            </h3>
-            <h3>
-                Category: <Span> Category Name </Span>
-            </h3>
-            <h3>
-                <Span> </Span> Available
-            </h3>
-            <h3>
-                Borrow Date: <Span> 20/3/2076 </Span>
-            </h3>
-            <h3>
-                Return Date: <Span> 25/3/2076 </Span>
-            </h3>
-        </div>
-
+        {% for item in data %}
+            <div>
+                <h3>
+                    Borrower: <Span> {{item.ClientName}} </Span>
+                </h3>
+                <h3>
+                    Name: <Span> {{item.BookName}} </Span>
+                </h3>
+                <h3>
+                    Category: <Span> {{item.BookCategory}} </Span>
+                </h3>
+                <h3>
+                    <Span>{% if item.BookAvailable %} {% else%} Not {% endif %}</Span> Available
+                </h3>
+                <h3>
+                    Borrowing Id: <Span> {{item.BorrowId}} </Span>
+                </h3>
+                <h3>
+                    Borrow Date: <Span> {{item.BorrowDate}} </Span>
+                </h3>
+                <h3>
+                    Return Date: <Span> {{item.ReturnDate}} </Span>
+                </h3>
+            </div>
+        {% endfor %}
     </section>
     <script src="{% static 'js/Main.js' %}"></script>
 </body>

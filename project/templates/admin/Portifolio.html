@@ -11,26 +11,22 @@
     {% include 'admin/Navbar.html'%}
     <section>
         <h1> Portfolio Data</h1>
-        <form>
+        {% if Error %}
+            <h1> {{Error}} </h1>
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
             <div>
-                <label for="Name">Name:</label>
-                <input type="text" id="Name">
-            </div>
-            <div>
-                <label for="Email">Email:</label>
-                <input type="email" id="Email">
-            </div>
-            <div>
-                <label for="Phone">Phone:</label>
-                <input type="text" id="Phone">
+                <label for="Name">Username:</label>
+                <input type="text" id="Username" name="Username" readonly>
             </div>
             <div>
                 <label for="OldPassword">Old Password</label>
-                <input type="password" id="OldPassword">
+                <input type="password" id="OldPassword" name="OldPassword">
             </div>
             <div>
                 <label for="NewPassword">New Password</label>
-                <input type="password" id="NewPassword">
+                <input type="password" id="NewPassword" name="NewPassword">
             </div>
             <div>
                 <label for="ReNewPassword">ReNew Password</label>
@@ -42,6 +38,29 @@
             </div>
         </form>
     </section>
-    <script src="{% static 'js/Main.js' %}"></script>
+    <!-- <script src="{% static 'js/Main.js' %}"></script> -->
+    <script>
+        document.getElementById("Username").value = localStorage.getItem("Username")
+        /*
+            At least 8 characters long.
+            Contains at least one uppercase letter.
+            Contains at least one lowercase letter.
+            Contains at least one digit.
+            Contains at least one special character (e.g., !@#$%^&*()).
+        */
+        function validatePassword(Pass) {
+            const Password = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            return Password.test(Pass);
+        }
+        document.forms[0].addEventListener("submit",(e)=>{
+            let Password = validatePassword(document.getElementById("Password"))
+            let RePassword = document.getElementById("Password") == document.getElementById("RePassword")
+            if(Password && RePassword){
+                console.log("Welcome")
+            }else{
+                e.preventDefault()
+            }
+        })
+    </script>
 </body>
 </html>

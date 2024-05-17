@@ -13,24 +13,38 @@
         <h1> Book Data </h1>
         <div>
             {% load static %}
-            <img src="{% static 'book.jpeg' %}">
+            <img id="Cover" src="">
             <h3>
-                Name: <Span> Book Name </Span>
+                Name: <span id="Title"> Book Name </span>
             </h3>
             <h3>
-                Author: <Span> Author Name </Span>
+                Author: <span id="Author"> Author Name </span>
             </h3>
             <h3>
-                Category: <Span> Category Name </Span>
+                Category: <span id="Category"> Category Name </span>
             </h3>
             <h3>
-                <Span> </Span> Available
+                <span id="Available"> </span> Available
             </h3>
             <h3>
-                Description: <Span> Description </Span>
+                Description: <span id="Description"> Description </span>
             </h3>
         </div>
     </section>
-    <script src="{% static 'js/Main.js' %}"></script>
+    <!-- <script src="{% static 'js/Main.js' %}"></script> -->
+    <script>
+        window.addEventListener("load",()=>{
+            document.getElementById("Cover").setAttribute("src",localStorage.getItem("Cover"))
+            document.getElementById("Title").innerHTML = localStorage.getItem("Title")
+            document.getElementById("Author").innerHTML = localStorage.getItem("Author")
+            document.getElementById("Category").innerHTML = localStorage.getItem("Category")
+            document.getElementById("Available").innerHTML = localStorage.getItem("Available")
+            document.getElementById("Description").innerHTML = localStorage.getItem("Description")
+        })
+
+        window.addEventListener("cancel",()=>{
+            localStorage.clear()
+        })
+    </script>
 </body>
 </html>

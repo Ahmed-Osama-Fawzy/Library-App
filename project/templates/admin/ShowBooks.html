@@ -1,10 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{Title}}</title>
-    {% load static %}
     <link rel="stylesheet" href="{% static 'css/Main.css' %}">
 </head>
 <body>
@@ -21,27 +21,53 @@
                         {{Book.id}}
                     </h3>
                     <h3>
-                        Name: <Span> {{Book.Title}} </Span>
+                        Name: <span> {{Book.Title}} </span>
                     </h3>
                     <h3>
-                        Author: <Span> {{Book.Author}} </Span>
+                        Author: <span> {{Book.Author}} </span>
                     </h3>
                     <h3>
-                        Category: <Span> {{Book.Category}} </Span>
+                        Category: <span> {{Book.Category}} </span>
                     </h3>
                     <h3>
-                        <Span> {% if Book.Avilable %} {% else %} Not {% endif %} </Span> Available
+                        <span> {% if Book.Avilable %} {% else %} Not {% endif %} </span> Available
                     </h3>
                     <h3 style="display: none;">
-                        {{Book.Description}}
+                        <span>
+                            {{Book.Description}}
+                        </span>
                     </h3>
                     <button>
-                        <a href="{% url 'ShowBook' %}">Show</a>
+                        <a target="_blank" href="{% url 'ShowBook' %}" class="ShowBook">Show</a>
                     </button>
                 </div>
             </div>
         {% endfor %}
     </section>
-    <script src="{% static 'js/Main.js' %}"></script>
+    <!-- <script src="{% static 'js/Main.js' %}"></script> -->
+    <script>
+        let Buttons = Array.from(document.getElementsByClassName("ShowBook"))
+        console.log(Buttons)
+        Buttons.forEach((button)=>{
+            button.addEventListener("click",(e)=>{
+                let Container = button.parentElement.parentElement
+                let Headers = Container.children
+                let Title = Headers.item(1).children[0].innerHTML
+                let Author = Headers.item(2).children[0].innerHTML
+                let Category = Headers.item(3).children[0].innerHTML
+                let Available = Headers.item(4).children[0].innerHTML
+                let Description = Headers.item(5).children[0].innerHTML
+                let Cover = Container.parentElement.children[0].children[0].getAttribute("src")
+                
+                localStorage.clear()
+                localStorage.setItem("Title",Title)
+                localStorage.setItem("Author",Author)
+                localStorage.setItem("Category",Category)
+                localStorage.setItem("Available",Available)
+                localStorage.setItem("Description",Description)
+                localStorage.setItem("Cover",Cover)
+            })
+        } )
+    </script>
 </body>
 </html>
