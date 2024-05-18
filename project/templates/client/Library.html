@@ -28,16 +28,13 @@
                             Category: <Span> {{ Book.Category }}</Span>
                         </h3>
                         <h3>
-                            <Span> {% if Book.Avilable %} {% else %} Not {% endif %} </Span> Available
+                            <Span> {% if Book.Available %} {% else %} Not {% endif %} </Span> Available
                         </h3>
                         <h3 style="display: none;">
                             {{Book.Description}}
                         </h3>
                         <button>
                             <a href="{% url 'CShowBook' %}">Show</a>
-                        </button>
-                        <button>
-                            <a> Borrow </a>
                         </button>
                     </div>
                 </div>

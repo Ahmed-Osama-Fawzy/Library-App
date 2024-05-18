@@ -10,12 +10,18 @@
 <body>
     {% include 'admin/Navbar.html'%}
     <section>
-        <h1> Welcome MR. <span id="Username">{{Username}} </span></h1>
+        <h1> Welcome MR. <span id="Username">{{Username}}</span></h1>
     </section>
     <!-- <script src="{% static 'js/Main.js' %}"></script> -->
     <script>
-        localStorage.clear()
-        localStorage.setItem("Username",document.getElementById("Username").innerHTML)
+        
+        if(localStorage.getItem("Username")){
+            document.getElementById("Username").innerHTML = localStorage.getItem("Username")
+        }
+        else{
+            localStorage.clear()
+            localStorage.setItem("Username",document.getElementById("Username").innerHTML)
+        }
     </script>
 </body>
 </html>

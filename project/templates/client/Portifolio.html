@@ -56,6 +56,7 @@
         document.getElementById("Name").value = localStorage.getItem("Name")
         document.getElementById("Email").value = localStorage.getItem("Email")
         document.getElementById("Phone").value = localStorage.getItem("Phone")
+        
         function validateMobile(number) {
             const Mobile = /^01[0-25][0-9]{8}$/;
             return Mobile.test(number);
@@ -72,6 +73,7 @@
             Contains at least one digit.
             Contains at least one special character (e.g., !@#$%^&*()).
         */
+        
         function validatePassword(Pass) {
             const Password = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
             return Password.test(Pass);
@@ -86,6 +88,19 @@
                 console.log("Welcome")
             }else{
                 e.preventDefault()
+                if(!Phone){
+                    document.getElementById("Phone").style.borderTop = "2px solid red"
+                }
+                if(!Email){
+                    document.getElementById("Email").style.borderTop = "2px solid red"
+                }
+                if(!Password){
+                    document.getElementById("Password").style.borderTop = "2px solid red"
+                }
+                if(!RePassword){
+                    document.getElementById("RePassword").style.borderTop = "2px solid red"
+                }
+            }
             }
         })
     </script>

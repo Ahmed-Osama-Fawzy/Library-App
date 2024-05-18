@@ -33,6 +33,7 @@
     </section>
     <!-- <script src="{% static 'js/Main.js' %}"></script> -->
     <script>
+
         window.addEventListener("load",()=>{
             document.getElementById("Cover").setAttribute("src",localStorage.getItem("Cover"))
             document.getElementById("Title").innerHTML = localStorage.getItem("Title")
@@ -40,10 +41,6 @@
             document.getElementById("Category").innerHTML = localStorage.getItem("Category")
             document.getElementById("Available").innerHTML = localStorage.getItem("Available")
             document.getElementById("Description").innerHTML = localStorage.getItem("Description")
-        })
-
-        window.addEventListener("cancel",()=>{
-            localStorage.clear()
         })
     </script>
 </body>

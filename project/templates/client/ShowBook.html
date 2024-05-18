@@ -28,9 +28,6 @@
             <h3>
                 Description: <span id="Description"> Description </span>
             </h3>
-            <button>
-                <a href="">Borrow</a>
-            </button>
         </div>
     </section>
     <!-- <script src="{% static 'js/Main.js' %}"></script> -->
@@ -42,10 +39,6 @@
             document.getElementById("Category").innerHTML = localStorage.getItem("Category")
             document.getElementById("Available").innerHTML = localStorage.getItem("Available")
             document.getElementById("Description").innerHTML = localStorage.getItem("Description")
-        })
-
-        window.addEventListener("cancel",()=>{
-            localStorage.clear()
         })
     </script>
 </body>

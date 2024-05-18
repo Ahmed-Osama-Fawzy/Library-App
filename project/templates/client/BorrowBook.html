@@ -18,6 +18,14 @@
                 <input type="search" id="Search">
                 <input style="display: none;" name="Id" type="number" value="">
             </div>
+            <div>
+                <label for="SearchLabel">Search Label</label>
+                <select id="SearchLabel">
+                    <option value="Title" selected>Title</option>
+                    <option value="Author">Author</option>
+                    <option value="Category">Category</option>
+                </select>
+            </div>
         </form>
         <hr>
         <article>
@@ -31,13 +39,13 @@
                         Name: <span class="BookTitle"> {{Book.Title}} </span>
                     </h3>
                     <h3>
-                        Author: <span> {{Book.Author}} </span>
+                        Author: <span class="BookAuthor"> {{Book.Author}} </span>
                     </h3>
                     <h3>
-                        Category: <span> {{ Book.Category }}</span>
+                        Category: <span class="BookCategory"> {{ Book.Category }}</span>
                     </h3>
                     <h3>
-                        <span> {% if Book.Avilable %} {% else %} Not {% endif %} </span> Available
+                        <span class="Available"> {% if Book.Available %} {% else %} Not {% endif %} </span> Available
                     </h3>
                     <h3 style="display: none;">
                         <span>
@@ -48,7 +56,7 @@
                         <a class="ShowBook" target="_blank" href="{% url 'CShowBook' %}">Show</a>
                     </button>
                     <button>
-                        <a onclick="BorrowBook('{{Book.Id}}')"> Borrow </a>
+                        <a onclick="BorrowBook('{{Book.Id}}',this)" data-set="{{Book.Available}}"> Borrow </a>
                     </button>
                 </div>
             </div>
@@ -59,22 +67,55 @@
     <script>
         document.getElementById("Search").addEventListener("keyup",(e)=>{
             let ConTitles = Array.from(document.getElementsByClassName("BookTitle"))
+            let ConAuthors = Array.from(document.getElementsByClassName("BookAuthor"))
+            let ConCategories = Array.from(document.getElementsByClassName("BookCategory"))
             let Value = document.getElementById("Search").value
+            let Key = document.getElementById("SearchLabel").value
             let Titles = []
+            let Authors = []
+            let Categories = []
             if(Value){
                 ConTitles.forEach((Title)=>{
                     Title.parentElement.parentElement.parentElement.style.display = 'none'
                 })
-                for(i = 0 ; i < ConTitles.length;i++){
-                    let Obj = {
-                        x:[i,ConTitles[i].innerHTML,ConTitles[i]]
+                if(Key === "Title"){
+                    console.log("Title")
+                    for(i = 0 ; i < ConTitles.length;i++){
+                        let Obj = {
+                            x:[i,ConTitles[i].innerHTML,ConTitles[i]]
+                        }
+                        Titles[i] = Obj
                     }
-                    Titles[i] = Obj
-                }
-                const Filtered = Titles.filter((el) => el.x[1].toLowerCase().includes(Value.toLowerCase()))
-                Filtered.forEach(item => {
-                    item.x[2].parentElement.parentElement.parentElement.style.display = 'block'
+                    let Filtered = Titles.filter((el) => el.x[1].toLowerCase().includes(Value.toLowerCase()))
+                    Filtered.forEach(item => {
+                        item.x[2].parentElement.parentElement.parentElement.style.display = 'block'
+                    })
+
+                }else if (Key === "Author"){
+                    console.log("Author")
+                    for(i = 0 ; i < ConAuthors.length;i++){
+                        let Obj = {
+                            x:[i,ConAuthors[i].innerHTML,ConAuthors[i]]
+                        }
+                        Authors[i] = Obj
+                    }
+                    let Filtered = Authors.filter((el) => el.x[1].toLowerCase().includes(Value.toLowerCase()))
+                    Filtered.forEach(item => {
+                        item.x[2].parentElement.parentElement.parentElement.style.display = 'block'
                 })
+
+                }else if(Key === "Category"){
+                    for(i = 0 ; i < ConCategories.length;i++){
+                        let Obj = {
+                            x:[i,ConCategories[i].innerHTML,ConCategories[i]]
+                        }
+                        Categories[i] = Obj
+                    }
+                    let Filtered = Categories.filter((el) => el.x[1].toLowerCase().includes(Value.toLowerCase()))
+                    Filtered.forEach(item => {
+                        item.x[2].parentElement.parentElement.parentElement.style.display = 'block'
+                })
+                }
             }else{
                 ConTitles.forEach((Title)=>{
                     Title.parentElement.parentElement.parentElement.style.display = 'block'
@@ -94,7 +135,7 @@
                 let Description = Headers.item(4).children[0].innerHTML
                 let Cover = Container.parentElement.children[0].children[0].getAttribute("src")
                 
-                localStorage.clear()
+                
                 localStorage.setItem("Title",Title)
                 localStorage.setItem("Author",Author)
                 localStorage.setItem("Category",Category)
@@ -103,12 +144,14 @@
                 localStorage.setItem("Cover",Cover)
             })
         } )
-        function BorrowBook(Id){
-            console.log(document.forms[0].children.item(1).children.item(2))
-            console.log(document.forms[0].children.item(1).children.item(2).value)
-            let Input = document.forms[0].children.item(1).children.item(2)
-            Input.value = Id
-            document.forms[0].submit()
+        function BorrowBook(Id,th){
+            if(th.getAttribute("data-set") === "True"){
+                let Input = document.forms[0].children.item(1).children.item(2)
+                Input.value = Id
+                document.forms[0].submit()
+            }else{
+                alert("Sorry This Book is'not Available Now")
+            }
         }
     </script>
 </body>

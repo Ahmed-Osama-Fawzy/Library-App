@@ -17,11 +17,21 @@
     </section>
     <!-- <script src="{% static 'js/Main.js' %}"></script> -->
     <script>
-        localStorage.clear()
-        localStorage.setItem("Username",document.getElementById("Username").innerHTML)
-        localStorage.setItem("Email",document.getElementById("Email").innerHTML)
-        localStorage.setItem("Name",document.getElementById("Name").innerHTML)
-        localStorage.setItem("Phone",document.getElementById("Phone").innerHTML)
+        let UN = localStorage.getItem("Username")
+        let EM = localStorage.getItem("Email")
+        let NA = localStorage.getItem("Name")
+        let PH = localStorage.getItem("Phone")
+        if(UN && EM && NA && PH){
+            document.getElementById("Username").innerHTML = UN
+            document.getElementById("Email").innerHTML = EM
+            document.getElementById("Name").innerHTML = NA
+            document.getElementById("Phone").innerHTML = PH
+        }else{
+            localStorage.setItem("Username",document.getElementById("Username").innerHTML)
+            localStorage.setItem("Email",document.getElementById("Email").innerHTML)
+            localStorage.setItem("Name",document.getElementById("Name").innerHTML)
+            localStorage.setItem("Phone",document.getElementById("Phone").innerHTML)
+        }
     </script>
 </body>
 </html>

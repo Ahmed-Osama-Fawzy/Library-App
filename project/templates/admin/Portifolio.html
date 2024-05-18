@@ -59,6 +59,13 @@
                 console.log("Welcome")
             }else{
                 e.preventDefault()
+                if(!Password){
+                    document.getElementById("Password").style.borderTop = "2px solid red"
+                }
+                if(!RePassword){
+                    document.getElementById("RePassword").style.borderTop = "2px solid red"
+                }
+            }
             }
         })
     </script>
