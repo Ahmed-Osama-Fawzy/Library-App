@@ -1,4 +1,5 @@
 from django.shortcuts import render
+
 from Controlling.models import Book , Borrowing , Client , User
 from datetime import datetime
 
@@ -21,9 +22,11 @@ def AddBook(request):
     currentdate = str(datetime.date(datetime.now()).strftime("-%y-%m-%d/"))
     Image = str(request.POST.get("Cover"))
     Cover = str(Link+currentdate+Image)
-    Available = True if request.POST.get("Available") != 'None' else False
-
-    if(Id and Title and Author and Category and Description and Cover and Available):
+    Av = request.POST.get("Available")
+    Available = True if Av == "on" else False
+    print(Av)
+    print(Available)
+    if(Id and Title and Author and Category and Description and Cover and (Available or True)):
         Insert = Book(Id=Id , Title=Title , Author=Author , Category=Category , Description=Description , Cover=Cover , Available=Available )
         Insert.save()
 
@@ -70,9 +73,7 @@ def ModifyBook(request):
     NewCover = request.POST.get("Cover")
     NewAvilable = True if request.POST.get("Available") != "None" else False
 
-    print(TheId,NewTitle,NewAuthor,NewCategory,NewDesciption,NewCover,NewAvilable)
-
-    if(TheId and NewTitle and NewAuthor and NewCategory and NewCover and NewDesciption and NewAvilable):
+    if(TheId and NewTitle and NewAuthor and NewCategory and NewCover and NewDesciption and (NewAvilable or True)):
         data = Book(Id=TheId,Title=NewTitle,Author=NewAuthor,Category=NewCategory,Description=NewDesciption,Available=NewAvilable,Cover=NewCover)
         data.save()
     else:

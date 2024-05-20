@@ -9,9 +9,117 @@
 </head>
 <body>
     {% include 'Navbar.html'%}
-    <section>
-        <h1> Welcome To 3M 2A 1S Library :D </h1>
+    <header>
+        <h1>
+            Welcome
+        </h1>
+    </header>
+    <section class="Library">
+        <h1> Most Borrowed Books </h1>
+        <article>
+            {% for Book in Books %}
+                {% if forloop.counter < 4 %}
+                    <div>
+                        <div>
+                            <img src="{{Book.Cover.url}}">
+                        </div>
+                        <div>
+                            <h3>
+                                Name: <Span> {{Book.Title}} </Span>
+                            </h3>
+                            <h3>
+                                Author: <Span> {{Book.Author}} </Span>
+                            </h3>
+                            <h3>
+                                Category: <Span> {{ Book.Category }}</Span>
+                            </h3>
+                            <h3>
+                                <Span> {% if Book.Available %} {% else %} Not {% endif %} </Span> Available
+                            </h3>
+                            <h3 style="display: none;">
+                                {{Book.Description}}
+                            </h3>
+                            <button>
+                                <a href="{% url 'LogIn' %}">Borrow</a>
+                            </button>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </article>
     </section>
+    <section class="MainHome">
+        <article>
+            <h1> Services </h1>
+            <div>
+                <i> </i>
+                <span> Clients </span>
+            </div>
+            <div>
+                <i> </i>
+                <span> Clients </span>
+            </div>
+            <div>
+                <i> </i>
+                <span> Clients </span>
+            </div>
+            <div>
+                <i> </i>
+                <span> Clients </span>
+            </div>
+        </article>
+        <article>
+            <div>
+                <i></i>
+                <p> {{ClientsNumber}} </p>
+                <span> Clients </span>
+            </div>
+            <div>
+                <i></i>
+                <p> {{BooksNumber}} </p>
+                <span> Books </span>
+            </div>
+            <div>
+                <i></i>
+                <p> {{BorrowingsNumber}} </p>
+                <span> Borrowings </span>
+            </div>
+            <div>
+                <i></i>
+                <p> 10 </p>
+                <span> Years of Exp. </span>
+            </div>
+        </article>
+        <article>
+            <div>
+                <img>
+            </div>
+            <div>
+                
+            </div>
+        </article>
+    </section>
+    <footer>
+        <form method="post">
+            {% csrf_Token %}
+            <div>
+                <label for="Name">Your Name: </label>
+                <input type="text" id="Name" name="Name" required>
+            </div>
+            <div>
+                <label for="Email">Your Email: </label>
+                <input type="email" id="Email" name="Email" required>
+            </div>
+            <div>
+                <label for="Message"> Your Message: </label>
+                <textarea id="Message" name="Message" maxlength="50" required> </textarea>
+            </div>
+            <div>
+                <input type="submit" value="Send">
+                <input type="reset" value="Clear">
+            </div>
+        </form>
+    </footer>
     <!-- <script src="{% static 'js/Main.js' %}"></script> -->
     <script>
         localStorage.clear()

@@ -35,7 +35,7 @@
             </div>
             <div>
                 <label for="Password">RePassword</label>
-                <input id="Password" type="password" name="RePassword" required>
+                <input id="RePassword" type="password" name="RePassword" required>
             </div>
             <div>
                 <input type="submit" value="Create">
@@ -69,6 +69,7 @@
         }
     
         document.forms[0].addEventListener("submit",(e)=>{
+            e.preventDefault()
             let Phone = validateMobile(document.getElementById("Phone").value)
             let Email = validateEmail(document.getElementById("Email").value)
             let Password = validatePassword(document.getElementById("Password").value)

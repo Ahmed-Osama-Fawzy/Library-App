@@ -53,19 +53,19 @@
             return Password.test(Pass);
         }
         document.forms[0].addEventListener("submit",(e)=>{
-            let Password = validatePassword(document.getElementById("Password").value)
-            let RePassword = document.getElementById("Password").value == document.getElementById("RePassword").value
+            e.preventDefault()
+            let Password = validatePassword(document.getElementById("NewPassword").value)
+            let RePassword = document.getElementById("NewPassword").value === document.getElementById("ReNewPassword").value
             if(Password && RePassword){
                 console.log("Welcome")
             }else{
                 e.preventDefault()
                 if(!Password){
-                    document.getElementById("Password").style.borderTop = "2px solid red"
+                    document.getElementById("NewPassword").style.borderTop = "2px solid red"
                 }
                 if(!RePassword){
-                    document.getElementById("RePassword").style.borderTop = "2px solid red"
+                    document.getElementById("ReNewPassword").style.borderTop = "2px solid red"
                 }
-            }
             }
         })
     </script>
