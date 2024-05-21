@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{Title}}</Title></title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/Main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Main.css' %}">
 </head>
 <body>
     {% include 'Navbar.html'%}
@@ -92,7 +92,7 @@
         </article>
         <article>
             <div>
-                <img>
+                <img src="">
             </div>
             <div>
                 
@@ -101,7 +101,7 @@
     </section>
     <footer>
         <form method="post">
-            {% csrf_Token %}
+            {% csrf_token %}
             <div>
                 <label for="Name">Your Name: </label>
                 <input type="text" id="Name" name="Name" required>
