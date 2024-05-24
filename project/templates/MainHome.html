@@ -6,12 +6,13 @@
     <title>{{Title}}</Title></title>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/Main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/all.css' %}">
 </head>
 <body>
     {% include 'Navbar.html'%}
     <header>
         <h1>
-            Welcome
+            Welcome to Our Library
         </h1>
     </header>
     <section class="Library">
@@ -52,54 +53,51 @@
         <article>
             <h1> Services </h1>
             <div>
-                <i> </i>
-                <span> Clients </span>
-            </div>
-            <div>
-                <i> </i>
-                <span> Clients </span>
-            </div>
-            <div>
-                <i> </i>
-                <span> Clients </span>
-            </div>
-            <div>
-                <i> </i>
-                <span> Clients </span>
-            </div>
-        </article>
-        <article>
-            <div>
-                <i></i>
-                <p> {{ClientsNumber}} </p>
-                <span> Clients </span>
-            </div>
-            <div>
-                <i></i>
-                <p> {{BooksNumber}} </p>
-                <span> Books </span>
-            </div>
-            <div>
-                <i></i>
-                <p> {{BorrowingsNumber}} </p>
-                <span> Borrowings </span>
-            </div>
-            <div>
-                <i></i>
-                <p> 10 </p>
-                <span> Years of Exp. </span>
+                <div>
+                    <i class="fa-solid fa-4x fa-house"></i>
+                    <span> ClientsClient sClientsClients ClientsClientsClients ClientsClients </span>
+                </div>
+                <div>
+                    <i class="fa-solid fa-4x fa-house"></i>
+                    <span> ClientsClients  ClientsClients ClientsClientsClien tsClientsClients </span>
+                </div>
+                <div>
+                    <i class="fa-solid fa-4x fa-house"></i>
+                    <span> ClientsClients ClientsClients ClientsClientsClient sClientsClients </span>
+                </div>
+                <div>
+                    <i class="fa-solid fa-4x fa-house"></i>
+                    <span> ClientsClients ClientsClients ClientsClientsClient sClientsClients </span>
+                </div>
             </div>
         </article>
         <article>
             <div>
-                <img src="">
-            </div>
-            <div>
-                
+                <div>
+                    <i class="fa-solid fa-4x fa-users"></i>
+                    <p> {{ClientsNumber}} </p>
+                    <span> Clients </span>
+                </div>
+                <div>
+                    <i class="fa-solid fa-4x fa-book"></i>
+                    <p> {{BooksNumber}} </p>
+                    <span> Books </span>
+                </div>
+                <div>
+                    <i class="fa-solid fa-4x fa-address-book"></i>
+                    <p> {{BorrowingsNumber}} </p>
+                    <span> Borrowings </span>
+                </div>
+                <div>
+                    <i class="fa-solid fa-4x fa-handshake"></i>
+                    <p> 10 </p>
+                    <span> Years of Exp. </span>
+                </div>
             </div>
         </article>
     </section>
-    <footer>
+    <section>
+        <h1> Contact Us </h1>
         <form method="post">
             {% csrf_token %}
             <div>
@@ -119,10 +117,12 @@
                 <input type="reset" value="Clear">
             </div>
         </form>
-    </footer>
-    <!-- <script src="{% static 'js/Main.js' %}"></script> -->
+    </section>
+    <script src="{% static 'js/all.js' %}"></script>
     <script>
         localStorage.clear()
+        document.getElementsByTagName("header")[0].style.backgroundImage = "url('BackGrounds/Book1.jpg')"
+        console.log("ddd")
     </script>
 </body>
 </html>
