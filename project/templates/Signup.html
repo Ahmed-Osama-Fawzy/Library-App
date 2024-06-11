@@ -11,6 +11,7 @@
     {% include 'Navbar.html'%}
     <section>
         <h1> Create New Account </h1>
+        <h1> {{Error}} </h1>
         <form method="POST">
             {% csrf_token %}
             <div>
@@ -69,7 +70,6 @@
         }
     
         document.forms[0].addEventListener("submit",(e)=>{
-            e.preventDefault()
             let Phone = validateMobile(document.getElementById("Phone").value)
             let Email = validateEmail(document.getElementById("Email").value)
             let Password = validatePassword(document.getElementById("Password").value)
@@ -78,17 +78,22 @@
                 console.log("Welcome")
             }else{
                 e.preventDefault()
+                console.log("Error")
                 if(!Phone){
                     document.getElementById("Phone").style.borderTop = "2px solid red"
+                    console.log("Error1")
                 }
                 if(!Email){
                     document.getElementById("Email").style.borderTop = "2px solid red"
+                    console.log("Error2")
                 }
                 if(!Password){
                     document.getElementById("Password").style.borderTop = "2px solid red"
+                    console.log("Error3")
                 }
                 if(!RePassword){
                     document.getElementById("RePassword").style.borderTop = "2px solid red"
+                    console.log("Error4")
                 }
             }
         })

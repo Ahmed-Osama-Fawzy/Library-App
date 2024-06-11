@@ -34,6 +34,8 @@
             </div>
             <div>
                 <input type="submit" value="Upadte">
+            </div>
+            <div>
                 <input type="reset" value="Reset">
             </div>
         </form>
@@ -53,7 +55,6 @@
             return Password.test(Pass);
         }
         document.forms[0].addEventListener("submit",(e)=>{
-            e.preventDefault()
             let Password = validatePassword(document.getElementById("NewPassword").value)
             let RePassword = document.getElementById("NewPassword").value === document.getElementById("ReNewPassword").value
             if(Password && RePassword){

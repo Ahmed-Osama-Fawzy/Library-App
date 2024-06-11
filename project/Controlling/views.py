@@ -29,18 +29,16 @@ def PLibrary(request):
 
 def LogIn(request):
     context = {
-        'Title':'Log In'
+        'Title':'Log In',
+        'Error':''
     }
     if request.method == 'POST':
         Username = request.POST.get("Username")
         Password = request.POST.get("Password")
         Users = User.objects.all()
         if(Username and Password):
-            print("Filled")
             for i in range(User.objects.count()):
-                print("Not Finded")
                 if Users[i].Username == Username and Users[i].Password == Password:
-                    print("Finded")
                     if(Users[i].Rule):
                         print("Client")
                         context['Username'] = Client.objects.get(Username=Username).Username
@@ -52,6 +50,7 @@ def LogIn(request):
                         print("Admin")
                         context['Username'] = User.objects.get(Username=Username).Username
                         return render(request , 'Admin/Home.html' ,context)
+        context['Error'] = "Sorry Username or Password is Wrong, Try Again"
     return render(request , 'Login.html' ,context)
 
 def SignUp(request):
@@ -67,7 +66,9 @@ def SignUp(request):
     Email = request.POST.get("Email")
     Password = request.POST.get("Password")
     Users = User.objects.all()
+    print("Enter 0 Signup")
     if(Username and Password):
+        print("Enter 1 Signup")
         for i in range(User.objects.count()):
             if Users[i].Username == Username and Users[i].Password == Password:
                 context['Error'] = "Sorry This Username and Password Already Used" 
@@ -79,6 +80,7 @@ def SignUp(request):
                 context['Error'] = "Sorry This Password  Already Used" 
                 return render(request , 'Signup.html' ,context)
     if(Username and Name and Phone and Email and Password):
+        print("Enter 2 Signup")
         data = Client(Id=Id , Name=Name ,Email=Email , Phone=Phone , Username=Username)
         data.save()
 

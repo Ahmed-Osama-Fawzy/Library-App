@@ -65,24 +65,56 @@ nav > ul > li > a > img {
     height: 100px;
     width: 100px;
 }
+@keyframes BackgroundImage {
+    0% {
+        background-image: url("BackGrounds/I1.jpg");
+    }
+    20% {
+        background-image: url("BackGrounds/I2.jpg");
+    }
+    30% {
+        background-image: url("BackGrounds/I3.jpg");
+    }
+    40%{
+        background-image: url("BackGrounds/I4.jpg");
+    }
+    60%{
+        background-image: url("BackGrounds/I5.jpg");
+    }
+    80%{
+        background-image: url("BackGrounds/I6.jpg");
+    }
+    100%{
+        background-image: url("BackGrounds/I7.jpg");
+    }
+}
 header {
     text-align: center;
     vertical-align: middle;
-    background-image: url("F:/Codes Ref/Library-App/project/media/static/Covers-24-05-16/Image.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-position: center;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    animation-name: BackgroundImage ;
+    animation-duration: 100s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
 }
+
 header h1 {
     padding: 0;
-    font-size: xx-large;
+    font-size: 90px;
     font-weight: 800;
+    color: var(--Color2);
 }
 section {
     padding: 2%;
     width: 95%;
 }
-section > h1 {
+section > h1 , section >article > h1{
     font-size: 50px;
     font-weight: 700;
     text-align: center;
@@ -132,7 +164,7 @@ section > form > div > input[type='submit']:hover,input[type='reset']:hover{
     background-color: var(--Color1);
     color: var(--Color3);
 }
-.Books  > div{
+.Books > div{
     width: 92%;
     padding: 2%;
     margin: 2%;
@@ -222,6 +254,7 @@ section[class='Library'] > article > div{
 }
 
 section[class='Library'] > article > div > div > img {
+    height: 500px;
     width: 100%;
 }
 
@@ -241,8 +274,38 @@ section[class='MainHome'] article  > div{
     display: grid;
     justify-content: space-around;
     align-items: center;
+    margin: 150px auto;
 }
-
+section[class='MainHome'] article  > div > div {
+    text-align: center;
+    padding: 10px;
+}
+section[class='MainHome'] article  > div > div > svg {
+    display: block;
+    padding: 15px 10px;
+    margin-left: calc(50% - 40px);
+    color: var(--Color4);
+    transition: 1s;
+}
+section[class='MainHome'] article  > div > div > svg:hover {
+    color: var(--Color1);
+}
+section[class='MainHome'] article  > div > div > span{
+    color: var(--Color4);
+    line-height: 1.5;
+    font-size: larger;
+}
+section[class='MainHome'] article  > div > div > p{
+    color: var(--Color3);
+    line-height: 1.5;
+    font-size: 60px;
+    font-weight: 900;
+    margin: 0;
+}
+footer{
+    float: right;
+    width: 75%;
+}
 @media (min-width:1800px) and (max-width: 5599px){
     nav ul{
         display: flex;

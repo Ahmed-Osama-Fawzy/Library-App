@@ -65,6 +65,29 @@ nav > ul > li > a > img {
     height: 100px;
     width: 100px;
 }
+@keyframes BackgroundImage {
+    0% {
+        background-image: url("BackGrounds/I1.jpg");
+    }
+    20% {
+        background-image: url("BackGrounds/I2.jpg");
+    }
+    30% {
+        background-image: url("BackGrounds/I3.jpg");
+    }
+    40%{
+        background-image: url("BackGrounds/I4.jpg");
+    }
+    60%{
+        background-image: url("BackGrounds/I5.jpg");
+    }
+    80%{
+        background-image: url("BackGrounds/I6.jpg");
+    }
+    100%{
+        background-image: url("BackGrounds/I7.jpg");
+    }
+}
 header {
     text-align: center;
     vertical-align: middle;
@@ -74,11 +97,18 @@ header {
     display: grid;
     justify-content: center;
     align-items: center;
+    animation-name: BackgroundImage ;
+    animation-duration: 100s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
 }
+
 header h1 {
     padding: 0;
-    font-size: 60px;
+    font-size: 90px;
     font-weight: 800;
+    color: var(--Color2);
 }
 section {
     padding: 2%;
@@ -105,6 +135,12 @@ section > form > div > label, textarea , select{
     font-size: x-large;
     color: var(--Color3);
     font-weight: 700;
+    text-align: center;
+    width: 70%;
+    margin: 5px 15%;
+}
+textarea{
+    margin: 10px auto;
 }
 
 section > form > div > input{
@@ -113,7 +149,8 @@ section > form > div > input{
     text-align: center;
     padding: 5px;
     border-bottom: 2px solid;
-    margin: 10px;
+    width: 70%;
+    margin: 10px 15%;
 }
 
 section > form > div > input[type='submit'],input[type='reset']{
@@ -134,7 +171,7 @@ section > form > div > input[type='submit']:hover,input[type='reset']:hover{
     background-color: var(--Color1);
     color: var(--Color3);
 }
-.Books  > div{
+.Books > div{
     width: 92%;
     padding: 2%;
     margin: 2%;
@@ -224,6 +261,7 @@ section[class='Library'] > article > div{
 }
 
 section[class='Library'] > article > div > div > img {
+    height: 500px;
     width: 100%;
 }
 
@@ -293,7 +331,7 @@ footer{
     }
     section > form{
         display: grid;
-        grid-template-columns: 20% 20% 20% 20% 20%;
+        grid-template-columns: 50% 50%;
     }
     .Books  > div{
         grid-template-columns: 50% 50%;
@@ -323,7 +361,7 @@ footer{
     }
     section > form{
         display: grid;
-        grid-template-columns: 25% 25% 25% 25%;
+        grid-template-columns: 50% 50%;
     }
     .Books > div{
         grid-template-columns: 50% 50%;

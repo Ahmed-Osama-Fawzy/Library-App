@@ -120,7 +120,7 @@ def History(request):
     }
     return render(request , 'admin/History.html',context)
 
-def Portifolio(request):
+def APortifolio(request):
     context = {
         'Title':'Portifolio',
         'Error':''

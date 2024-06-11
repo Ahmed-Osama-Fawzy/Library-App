@@ -11,6 +11,7 @@
     {% include 'Navbar.html'%}
     <section>
         <h1> Login </h1>
+        <h1> {{Error}} </h1>
         <form method="POST">
             {% csrf_token %}
             <div>

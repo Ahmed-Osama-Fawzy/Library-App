@@ -58,14 +58,10 @@ def Portifloio(request):
     Phone = request.POST.get("Phone")
     OldPassword = request.POST.get("OldPassword")
     NewPassword = request.POST.get("NewPassword")
-    print("Bad")
     if(Username and Name and Email and Phone and OldPassword and NewPassword):
-        print("Good")
         print(OldPassword,NewPassword)
         UN = User.objects.get(Password=OldPassword).Username
-        print(UN)
         if(''.join(UN.split()) == ''.join(Username.split())):
-            print("Very Good")
             data = Client(Id=Client.objects.get(Username=Username).Id , Username=Username , Name=Name, Email=Email , Phone=Phone)
             data.save()
             newdata = User(id=User.objects.get(Password=OldPassword).id , Username=Username , Rule=True, Password=NewPassword)
