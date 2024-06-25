@@ -11,6 +11,7 @@
     {% include 'admin/Navbar.html'%}    
     <section>
         <h1>Remove Book</h1>
+        <h1> {{Deleted}} </h1>
         <form method="POST">
             {% csrf_token %}
             <div>
@@ -18,11 +19,20 @@
                 <input type="text" name="Id" id="UnqieId" placeholder="Enter the book Id">
             </div>
             <div>
-                <input type="submit" value="Remove">
+                <input id="SUB" type="submit" value="Remove">
                 <input type="reset" value="Reset">
             </div>
         </form>
     </section>
-    <script src="{% static 'js/Main.js' %}"></script>
+    <!-- <script src="{% static 'js/Main.js' %}"></script> -->
+     <script>
+        document.getElementById("SUB").addEventListener("click",(e)=>{
+            Confirm = confirm("Are You Sure from this action")
+            if(!Confirm){
+                document.forms[0].addEventListener("sumit",(e)=>{e.preventDefault()})
+                document.getElementById("UnqieId").value = ""
+            }
+        })
+     </script>
 </body>
 </html>

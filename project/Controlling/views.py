@@ -1,8 +1,6 @@
 from django.shortcuts import render
 from .models import Client , User , Book , Borrowing
 
-# Create your views here.
-
 def MainHome(request):
     Books = Book.objects.all()
     BooksNumber = Book.objects.count()
@@ -40,14 +38,12 @@ def LogIn(request):
             for i in range(User.objects.count()):
                 if Users[i].Username == Username and Users[i].Password == Password:
                     if(Users[i].Rule):
-                        print("Client")
                         context['Username'] = Client.objects.get(Username=Username).Username
                         context['Phone'] = Client.objects.get(Username=Username).Phone
                         context['Email'] = Client.objects.get(Username=Username).Email
                         context['Name'] = Client.objects.get(Username=Username).Name
                         return render(request , 'Client/Home.html' ,context)
                     else:
-                        print("Admin")
                         context['Username'] = User.objects.get(Username=Username).Username
                         return render(request , 'Admin/Home.html' ,context)
         context['Error'] = "Sorry Username or Password is Wrong, Try Again"

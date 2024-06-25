@@ -39,6 +39,13 @@ def ModifyBook(request):
     Id = request.POST.get("Id")
     data = []
     if Id:
+        numbers = Book.objects.all()
+        Find = False
+        for i in range(0,len(numbers)):
+            if int(Id) == numbers[i].Id:
+                print("Find")
+                Find = True
+    if Find:
         Title = Book.objects.get(Id=Id).Title
         Author = Book.objects.get(Id=Id).Author
         Category = Book.objects.get(Id=Id).Category
@@ -52,7 +59,7 @@ def ModifyBook(request):
         data.append(Cover)
         data.append(Available)
     else:
-        data = ['','','','','','']
+        data = ['Not Found','','','','','']
     
     context = {
         'Title':'ModifyBook',
@@ -82,20 +89,22 @@ def ModifyBook(request):
     return render(request , 'admin/ModifyBook.html',context)
 
 def RemoveBook(request):
-    if request.method == "POST":
-        Id = request.POST.get("Id")
-        if Book.objects.get(Id=Id):
-            number = (Book.objects.last().Id)
-            Book.objects.get(Id=Id).delete()
-            for i in range(int(Id)+1,number):
-                num = Book.objects.get(Id=i).Id
-                Book.objects.get(Id=i).Id = int(num)-1
-        else:
-            print("Not Finded")
-    
     context = {
         'Title':'RemoveBook',
+        'Deleted':''
     }
+    if request.method == "POST":
+        Id = request.POST.get("Id")
+        numbers = Book.objects.all()
+        Find = False
+        for i in range(0,len(numbers)):
+            if int(Id) == numbers[i].Id:
+                Find = True
+        if Find:
+            Book.objects.get(Id=Id).delete()
+            context['Deleted'] = 'Book Deleted Susseccfully'
+        else:
+            context['Deleted'] = 'Book not Found'
     return render(request , 'admin/RemoveBook.html',context)
 
 def History(request):
